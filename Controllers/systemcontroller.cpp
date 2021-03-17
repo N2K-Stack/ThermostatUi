@@ -74,6 +74,16 @@ void systemcontroller::checkSystemStatus()
 
     else if(currentSystemTemperature() > targetTemp() && (systemState() == COOLING))
         setSystemStatusMessage("Cooling...");
+
+    else if(m_systemState == AUTO) {
+        if((m_currentSystemTemperature < m_targetTemp))
+            setSystemStatusMessage("Heating...");
+        else if((m_currentSystemTemperature > m_targetTemp))
+            setSystemStatusMessage("Cooling...");
+        else
+            setSystemStatusMessage("Holding...");
+
+    }
     else
         setSystemStatusMessage("Holding...");
 }

@@ -1,6 +1,28 @@
 import QtQuick 2.0
+import QtGraphicalEffects 1.12
 
 Item {
+      id: iHomeScreen
+    property var heatSelectDialogHolder: null
+
+    function createHeatSelectDialog() {
+        if( heatSelectDialogHolder === null) {
+            var Component = Qt.createComponent("HeatSelectDialog.qml")
+            heatSelectDialogHolder = Component.createObject(iHomeScreen, {"x":0, "y":0})
+            if( heatSelectDialogHolder) {
+               heatSelectDialogHolder.anchors.fill = iHomeScreen
+               heatSelectDialogHolder.destroyThis.connect( destroyHeatSelectDialog)
+            }
+        }
+    }
+
+    function destroyHeatSelectDialog() {
+        if( heatSelectDialogHolder !== null) {
+            heatSelectDialogHolder.destroy()
+            heatSelectDialogHolder = null
+        }
+    }
+
     Rectangle{
         id: imainBackground
         anchors.fill: parent
@@ -41,13 +63,32 @@ Item {
         source: {
             if (isystemController.systemState === 0)
                 return "qrc:/UI/Assets/flame.png"
+
             if (isystemController.systemState === 1)
                 return "qrc:/UI/Assets/ice-crystal.png"
             if (isystemController.systemState === 2)
                 return "qrc:/UI/Assets/auto.png"
         }
 
+        ColorOverlay {
+            anchors.fill: iheatCoolSelection
+            source: iheatCoolSelection
+            color: {
+            if (isystemController.systemState === 0)
+                return "orange"
+            if (isystemController.systemState === 1)
+                return "#2f59ad"
+            if (isystemController.systemState === 2)
+                return "white"
+            }
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: createHeatSelectDialog()
+        }
+
     }
+
 
     Image {
         id: isettingIcon

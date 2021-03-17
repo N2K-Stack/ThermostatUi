@@ -12,5 +12,6 @@
         <file>UI/Assets/wifi.png</file>
         <file>UI/HomeScreen/HomeScreen.qml</file>
         <file>UI/HomeScreen/TemperatureControlSlider.qml</file>
+        <file>UI/HomeScreen/HeatSelectDialog.qml</file>
     </qresource>
 </RCC>

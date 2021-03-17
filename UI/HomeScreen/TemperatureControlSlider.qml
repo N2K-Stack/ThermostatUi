@@ -6,6 +6,7 @@ Slider {
     to: 85
     stepSize: 1
     orientation: Qt.Vertical
+    onValueChanged: isystemController.setTargetTemp(value)
 
     background: Rectangle {
         height: parent.height
@@ -25,9 +26,16 @@ Slider {
 
         Text {
             anchors.centerIn: parent
-            color: "white"
             font.pixelSize: 30
             text: iTemperatureControlSlider.value
+            color: {
+                if (iTemperatureControlSlider.value > 72)
+                    return "orange"
+                if (iTemperatureControlSlider.value < 65)
+                    return "#2f59ad"
+                else
+                    return "white"
+            }
         }
     }
 }
