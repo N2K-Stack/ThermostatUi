@@ -2,6 +2,7 @@
 
 <p align="center">
   <b>Welcome to a Qt/QML Playground</b><br>
+
   
   <!---
   <a href="#">Link 1</a> |
@@ -11,3 +12,5 @@
   <img src=" ">
 -->
 </p>
+
+---
