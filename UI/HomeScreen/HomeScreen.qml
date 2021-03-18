@@ -25,12 +25,15 @@ Item {
 
     Rectangle{
         id: imainBackground
+
         anchors.fill: parent
         color: "black"
+
     }
 
     Text {
         id: icurrentTempText
+
         anchors.centerIn: parent
         color: "white"
         font.pixelSize: 200
@@ -91,6 +94,7 @@ Item {
 
 
     Image {
+
         id: isettingIcon
         anchors {
             bottom: iTemperatureSlider.bottom
@@ -102,6 +106,11 @@ Item {
         width: 70
         height: 70
         source: "qrc:/UI/Assets/settings.png"
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: imainLoader.source = "../SettingScreen/SettingScreen.qml"
+        }
     }
 
     TemperatureControlSlider {

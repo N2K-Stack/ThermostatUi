@@ -29,9 +29,9 @@ Slider {
             font.pixelSize: 30
             text: iTemperatureControlSlider.value
             color: {
-                if (iTemperatureControlSlider.value > 72)
+                if (iTemperatureControlSlider.value > isystemController.currentSystemTemperature)
                     return "orange"
-                if (iTemperatureControlSlider.value < 65)
+                if (iTemperatureControlSlider.value < isystemController.currentSystemTemperature)
                     return "#2f59ad"
                 else
                     return "white"

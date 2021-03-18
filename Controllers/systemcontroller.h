@@ -36,6 +36,7 @@ public slots:
     void setSystemStatusMessage(QString systemStatusMessage);
     void setSystemState(HeatSelectState systemState);
 
+
 signals:
 
     void currentSystemTemperatureChanged(int currentSystemTemperature);

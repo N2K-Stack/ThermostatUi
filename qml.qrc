@@ -13,5 +13,8 @@
         <file>UI/HomeScreen/HomeScreen.qml</file>
         <file>UI/HomeScreen/TemperatureControlSlider.qml</file>
         <file>UI/HomeScreen/HeatSelectDialog.qml</file>
+        <file>UI/SettingScreen/SettingScreen.qml</file>
+        <file>UI/SettingScreen/SettingMainMenu.qml</file>
+        <file>UI/SettingScreen/AboutPage.qml</file>
     </qresource>
 </RCC>

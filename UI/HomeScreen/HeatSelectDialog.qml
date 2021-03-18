@@ -42,6 +42,7 @@ Rectangle {
         anchors.fill: iInnerRectangle
         model: iheatModel
         delegate: Rectangle {
+            id: iheatControlButton
             width: iInnerRectangle.width
             height: iInnerRectangle.height / iheatModel.count
             color: "black"
@@ -49,6 +50,7 @@ Rectangle {
             border.width: 4
             radius: 5
             Text {
+                id: iheatcontroltext
                 anchors.centerIn: parent
                 color: "white"
                 font.pixelSize: 42
@@ -68,6 +70,17 @@ Rectangle {
                         isystemController.setSystemState(2)
 
                     iHeatSelectDialog.destroyThis()
+                }
+
+                onPressed: {
+                    iheatControlButton.color = "white"
+                    iheatcontroltext.color = "black"
+                }
+
+
+                onReleased: {
+                    iheatControlButton.color ="black"
+                    iheatcontroltext.color = "white"
                 }
             }
 
